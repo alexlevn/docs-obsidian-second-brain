@@ -180,11 +180,53 @@ Mục tiêu: thấy Claude **sửa trang cũ** chứ không chỉ tạo trang m�
    ```
    Dòng cuối có `main -> main` là xong.
 
+## Bước 12: Cài Obsidian Web Clipper
+
+Để làm gì: bấm 1 nút trên Chrome là bài web vào thẳng `raw/`, thay cho tạo note + copy + dán + dọn rác.
+
+**12.1. Cài extension**
+1. Mở Chrome, vào `https://chromewebstore.google.com/search/obsidian%20web%20clipper`.
+2. Chọn **Obsidian Web Clipper** của tác giả **obsidian.md** (không chọn bản khác).
+3. Bấm **Add to Chrome** → **Add extension**.
+
+**12.2. Ghim ra thanh công cụ**
+1. Bấm icon **mảnh ghép 🧩** góc trên bên phải Chrome.
+2. Tìm dòng **Obsidian Web Clipper**, bấm **icon ghim 📌**.
+3. Kiểm tra: icon tím Obsidian nằm cạnh thanh địa chỉ.
+
+**12.3. Cho Clipper lưu vào `raw/` (làm 1 lần)**
+1. Bấm icon tím → bấm **icon bánh răng ⚙️** (cuối hàng icon trên cùng). Trang Settings mở ra.
+2. Cột trái, dưới **Templates**, bấm **Default**.
+3. Tìm mục **Note location** (dòng chữ nhỏ "The folder or path of the note."). Ô bên dưới đang ghi `Clippings` → xoá, gõ `raw`.
+4. **Cẩn thận:** không sửa ô bên phải chữ **tags** trong bảng Properties (để nguyên `clippings`).
+5. Ô **Vault** để **Last used** (chỉ có 1 vault thì giữ nguyên).
+6. Setting tự lưu. Đóng tab bằng **Cmd + W**.
+   - Lưu ý: ô gần cuối của khung Clipper (ngay trên nút Add to Obsidian) chỉ đổi cho **lần clip đó**, không phải setting mặc định.
+
+**12.4. Clip thử**
+1. Mở 1 bài web bất kỳ, bấm icon tím.
+2. Kiểm tra ô gần cuối ghi **raw**.
+3. Bấm **Add to Obsidian**.
+4. Chrome hỏi **"Open Obsidian?"** → tích ô **Always allow…** → bấm **Open Obsidian**.
+5. Obsidian bật lên, note mới nằm trong `raw/`, đầu file có Properties (title, source, created, tags).
+
+**12.5. Ingest bài vừa clip**
+- Tên file từ Clipper thường **có dấu cách** → phải bọc trong **ngoặc kép**:
+  ```
+  ingest "raw/NestJS - A progressive Node.js framework.md"
+  ```
+- Mẹo: gõ `ingest raw/Nest` rồi bấm **Tab** để Claude Code tự điền tên file.
+
 ## Dùng hằng ngày
+
+1. Đọc bài hay → bấm **icon tím → Add to Obsidian**.
+2. Vào Claude của vault → `ingest "raw/<tên file>.md"`.
+3. Cần thì `hỏi: ...`.
+4. Cuối buổi: `git add . && git commit -m "..." && git push`.
 
 | Việc | Gõ cho Claude (trong thư mục vault) |
 |---|---|
-| Thêm kiến thức | `ingest raw/<tên-file>.md` |
+| Thêm kiến thức | `ingest "raw/<tên-file>.md"` |
 | Hỏi lại | `hỏi: tôi đã đọc gì về X?` |
 | Dọn kho (mỗi tuần) | `lint` |
 
