@@ -1,7 +1,7 @@
 ---
 tags: [công-cụ, pkm]
-sources: [raw/karpathy-second-brain.md]
-updated: 2026-11-19
+sources: [raw/karpathy-second-brain.md, raw/obsidian-internal-links.md]
+updated: 2026-11-20
 ---
 
 # Obsidian
@@ -10,3 +10,4 @@ updated: 2026-11-19
 
 - Cài Obsidian, tạo một vault, mở vault đó bằng [[claude-code]].
 - Vault chứa `raw/`, `wiki/` và `CLAUDE.md`.
+- Nối note bằng wikilink `[[...]]`, link tới heading/block, alias: xem [[obsidian-internal-links]]. (nguồn: [[raw/obsidian-internal-links]])

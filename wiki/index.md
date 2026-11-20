@@ -5,6 +5,7 @@
 
 ## Công cụ
 - [[obsidian]]: app ghi chú dạng vault markdown.
+- [[obsidian-internal-links]]: cú pháp link tới note, heading, block, đổi text hiển thị trong Obsidian.
 - [[claude-code]]: AI đọc `raw/` và viết `wiki/`.
 
 ## Người
