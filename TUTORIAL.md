@@ -4,6 +4,14 @@
 
 Yêu cầu: máy Mac, đã cài Claude Code (lệnh `claude` chạy được trong Terminal), có Homebrew.
 
+## Vault là gì?
+
+- **Vault = 1 thư mục bình thường trên máy.** Mỗi note là 1 file `.md` trong thư mục đó; mở Finder cũng thấy.
+- **Obsidian chỉ là cái kính để nhìn.** Nó không giữ dữ liệu ở đâu khác; gỡ Obsidian thì file vẫn còn.
+- **Mọi công cụ dùng chung thư mục đó:** Obsidian đọc, Claude Code đọc/ghi, Git lưu lên GitHub.
+- Thư mục ẩn `.obsidian/` bên trong chứa setting riêng của vault (vd file đã ẩn khỏi graph).
+- Có thể có nhiều vault (vd công việc / cá nhân), mỗi vault là 1 thư mục riêng.
+
 ---
 
 ## Bước 1: Tạo thư mục vault
@@ -77,7 +85,7 @@ Yêu cầu: máy Mac, đã cài Claude Code (lệnh `claude` chạy được tro
 5. Dòng đầu gõ nguồn: `Nguồn: <link bài gốc>`, bấm **Enter** 2 lần.
 6. Mở bài gốc trên trình duyệt, bôi đen nội dung, bấm **Cmd + C**.
 7. Quay lại Obsidian, bấm vào dòng trống, bấm **Cmd + V**.
-8. Xoá các dòng rác (hashtag kèm link theo dõi dài...). Obsidian tự lưu, không cần bấm Save.
+8. Xoá các dòng rác: hashtag kèm link theo dõi dài, menu web như "Links to this page"... Cách xoá: đặt chuột trước dòng đầu, giữ chuột trái kéo tới hết dòng cuối, bấm **Delete**. Obsidian tự lưu, không cần bấm Save.
 
 ## Bước 6: Cho Claude ingest
 
@@ -111,6 +119,51 @@ Yêu cầu: máy Mac, đã cài Claude Code (lệnh `claude` chạy được tro
    gh repo create obsidian-second-brain --private --source=. --push
    ```
 3. Để repo **private** vì đây là kho kiến thức cá nhân.
+
+## Bước 9: Ingest tài liệu thứ 2
+
+Mục tiêu: thấy Claude **sửa trang cũ** chứ không chỉ tạo trang mới.
+
+1. Chọn bài **liên quan tới trang đã có**. Vd đã có trang `obsidian` → chọn bài chính thức `https://obsidian.md/help/links` (Internal links).
+2. Làm như Bước 5: tạo note `raw/obsidian-internal-links`, ghi nguồn, copy toàn bài, dán, xoá phần "Links to this page" ở cuối.
+3. Trong Claude của vault, gõ:
+   ```
+   ingest raw/obsidian-internal-links.md
+   ```
+4. Kết quả đúng phải có 2 phần:
+   - **Tạo mới**: `wiki/obsidian-internal-links.md`
+   - **Sửa**: `wiki/obsidian.md` (thêm link sang trang mới + thêm nguồn), `index.md`, `log.md`
+5. Mở trang mới trong Obsidian: thấy link tím tới `obsidian`, `second-brain` = kiến thức mới đã nối vào kiến thức cũ.
+
+## Bước 10: Hỏi lại kho
+
+1. Hỏi câu wiki **có**:
+   ```
+   hỏi: làm sao link tới một heading trong note khác?
+   ```
+   → Claude trả lời `[[Note#Heading]]` và dẫn link `[[obsidian-internal-links]]`.
+2. Hỏi câu wiki **chưa có** (để kiểm tra Claude không bịa):
+   ```
+   hỏi: Obsidian Sync giá bao nhiêu?
+   ```
+   → Claude phải nói "wiki chưa có", và gợi ý đưa nguồn vào `raw/` để ingest.
+3. Lưu ý: chữ mờ trong ô gõ của Claude Code chỉ là **gợi ý**, chưa gửi. Không bấm Tab/Enter nếu không muốn làm việc đó.
+
+## Bước 11: Lint (dọn kho, mỗi tuần 1 lần)
+
+1. Gõ:
+   ```
+   lint
+   ```
+2. Claude báo danh sách: mâu thuẫn, trang mồ côi, link hỏng, trang quá dài, gợi ý thêm link. **Chưa sửa gì.**
+3. Muốn sửa thì gõ tiếp: `sửa theo gợi ý lint đi`.
+4. Commit sau mỗi buổi:
+   ```
+   git add .
+   git commit -m "Ingest <tên tài liệu>"
+   git push
+   ```
+   Dòng cuối có `main -> main` là xong.
 
 ## Dùng hằng ngày
 

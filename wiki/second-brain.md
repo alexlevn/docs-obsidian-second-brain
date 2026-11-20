@@ -1,7 +1,7 @@
 ---
 tags: [pkm, ai]
 sources: [raw/karpathy-second-brain.md]
-updated: 2026-11-19
+updated: 2026-11-20
 ---
 
 # Second brain (bộ não thứ hai)
@@ -16,6 +16,7 @@ Dùng AI để xây một wiki sống từ mọi thứ mình đọc, thay vì ch
 ## Quy trình
 - Bỏ tài liệu mới vào `raw/`, nói "ingest tài liệu này".
 - Claude đọc, trích xuất, tìm liên hệ với kiến thức đã có, rồi cập nhật wiki.
+- Các liên hệ được nối bằng link chéo `[[...]]`: cú pháp xem [[obsidian-internal-links]].
 
 ## Giá trị
 - Càng dùng lâu càng có giá trị, giống "lãi kép của tri thức": thông tin mới làm thông tin cũ hữu ích hơn.
