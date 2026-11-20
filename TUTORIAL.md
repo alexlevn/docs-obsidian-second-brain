@@ -1,6 +1,21 @@
 # Hướng dẫn dựng "Second brain" bằng Obsidian + Claude Code
 
-Ý tưởng: bỏ mọi thứ mình đọc (bài báo, PDF, transcript, ghi chú) vào thư mục `raw/`, rồi để Claude Code tự đọc và viết thành một wiki kiến thức có link chéo trong `wiki/`. Obsidian dùng để đọc wiki và xem graph.
+## Mình đang làm cái này để làm gì?
+
+**Vấn đề:** đọc bài hay, vài tuần sau quên, phải đi tìm lại. Mỗi lần mở Claude lại phải giải thích từ đầu.
+
+**Cách giải:** có một **thư ký riêng** (Claude) ghi sổ hộ:
+1. Đọc gì hay → bỏ vào thư mục `raw/` (đưa giấy tờ cho thư ký).
+2. Gõ `ingest` → Claude đọc, tóm tắt vào sổ `wiki/`, tự nối trang này với trang kia, tự sửa trang cũ khi có thông tin mới.
+3. Cần thì gõ `hỏi: ...` → Claude mở sổ ra trả lời, kèm link trang gốc.
+
+**Đồ nghề:**
+- **Obsidian**: cái kính để mình tự mở sổ ra đọc, xem graph (bản đồ các trang nối nhau).
+- **GitHub**: cất bản sao, mất máy không mất sổ.
+
+**Nói thật:** về bản chất nó chỉ là các file ghi chú có link với nhau. Khác ở chỗ **Claude làm phần tốn công** (viết, nối link, cập nhật) mà người ta hay bỏ cuộc khi tự làm. Nó chỉ có giá trị khi **bỏ tài liệu vào đều đặn**; ít khi cần tra lại thì app ghi chú thường là đủ. Cách biết có hợp không: dùng thật 1–2 tuần với 1 chủ đề đang học.
+
+---
 
 Yêu cầu: máy Mac, đã cài Claude Code (lệnh `claude` chạy được trong Terminal), có Homebrew.
 
