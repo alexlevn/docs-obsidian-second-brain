@@ -2,14 +2,15 @@
 
 Cập nhật: 2026-11-20. Chế độ: **user tự làm, Claude chỉ hướng dẫn** (từng bước, 1 thao tác/dòng, bám screenshot).
 
-## Trạng thái: chưa xong (2/6)
+## Trạng thái: phần dựng + tập dùng đã xong hết
 
-- [x] Cài Obsidian, mở vault, chỉnh Files and links (Wikilinks, Shortest path, auto update links, ẩn CLAUDE.md + GUIDE.md)
-- [x] Tạo `raw/karpathy-second-brain.md` (caption reel), ingest ra 4 trang wiki, xem Graph view
-- [ ] **Bước 7: đẩy lên GitHub.** Đã có commit local, chưa có remote. Lệnh: `gh repo create obsidian-second-brain --private --source=. --push`
-- [ ] Ingest tài liệu thứ 2 để thấy Claude **cập nhật trang cũ** + nối link (vd 1 bài về Shopify extension hoặc Obsidian)
-- [ ] Thử lệnh `hỏi: ...` và `lint` (xem `CLAUDE.md`)
-- [ ] Tùy chọn: cài extension Chrome **Obsidian Web Clipper** để clip bài web thẳng vào `raw/`
+- [x] Cài Obsidian, chỉnh setting, repo GitHub `docs-obsidian-second-brain` (private), đã push
+- [x] Ingest 4 tài liệu (karpathy, obsidian-internal-links, Yudi Nugraha, NestJS), thử `hỏi:` và `lint`
+- [x] Cài Web Clipper, Note location = `raw`
+- [x] `TUTORIAL.md` đủ 12 bước + mục đích ở đầu bài
+- [ ] Sửa link sai trong `wiki/log.md`: dòng Yudi trỏ `raw/yudi-nugraha-ai-olutions-engineer.md`, file thật là `raw/Yudi Nugraha - AI Solutions Engineer.md` (chạy `lint` rồi `sửa theo gợi ý lint đi`)
+- [ ] Dùng thật 1–2 tuần với chủ đề **Shopify extension**: clip docs → ingest → hỏi khi code ở `shopify-ext/`. Bắt đầu: `https://shopify.dev/docs/apps/build/app-extensions`
+- [ ] Sau 1–2 tuần: tự đánh giá có hợp không, cần chỉnh `CLAUDE.md` gì
 
 ## Câu mở session
-> Đọc `obsidian-second-brain/NEXT-SESSION.md`, hướng dẫn tôi làm tiếp từ bước 7.
+> Đọc `obsidian-second-brain/NEXT-SESSION.md`, hướng dẫn tôi làm tiếp.
